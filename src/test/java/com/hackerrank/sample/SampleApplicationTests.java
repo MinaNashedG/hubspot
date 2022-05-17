@@ -1,15 +1,13 @@
 package com.hackerrank.sample;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hackerrank.sample.dao.WeatherRepository;
 import com.hackerrank.sample.dto.WeatherDTO;
 import com.hackerrank.sample.exception.NoWeatherFoundException;
 import com.hackerrank.sample.service.WeatherService;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.io.output.WriterOutputStream;
 import org.junit.Before;
+
 import org.junit.Test;
-import org.junit.jupiter.params.shadow.com.univocity.parsers.common.input.WriterCharAppender;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,15 +20,16 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.io.Writer;
 import java.nio.charset.Charset;
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -42,7 +41,7 @@ public class SampleApplicationTests {
     @Autowired
     private MockMvc mockMvc;
 
-    private ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Value("classpath:/addWeatherResponse.json")
     private Resource addWeatherResponse;
@@ -110,7 +109,6 @@ public class SampleApplicationTests {
         mockMvc.perform(delete("/endpoint/delete/1"))
                 .andDo(print())
                 .andExpect(status().isNotFound())
-                .andExpect(result -> assertTrue(result.getResolvedException() instanceof NoWeatherFoundException))
-                .andExpect(result -> assertEquals("Weather ID is not found!!", result.getResolvedException().getMessage()));
+                .andExpect(result -> assertTrue(result.getResolvedException() instanceof NoWeatherFoundException));
     }
 }
