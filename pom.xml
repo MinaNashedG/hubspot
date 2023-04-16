@@ -2,20 +2,19 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.hackerrank.sample</groupId>
-    <artifactId>springboot_sample</artifactId>
+    <groupId>com.hubspot.assessment</groupId>
+    <artifactId>hubspot-assessment</artifactId>
     <version>1.0</version>
-    <name>SpringBoot Base Project Template</name>
+    <name>Hubspot Assessment</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.1.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <properties>
-        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
         <org.projectlombok.version>1.18.24</org.projectlombok.version>
     </properties>
 
@@ -34,15 +33,7 @@
             <artifactId>lombok</artifactId>
             <version>${org.projectlombok.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${org.mapstruct.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -50,21 +41,11 @@
         </dependency>
 
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.6</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
@@ -85,11 +66,6 @@
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                             <version>${org.projectlombok.version}</version>
-                        </path>
-                        <path>
-                            <groupId>org.mapstruct</groupId>
-                            <artifactId>mapstruct-processor</artifactId>
-                            <version>${org.mapstruct.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>

@@ -1,0 +1,28 @@
+{
+  "countries": [
+    {
+      "attendeeCount": 0,
+      "attendees": [],
+      "name": "United States",
+      "startDate": null
+    },
+    {
+      "attendeeCount": 1,
+      "attendees": [
+        "cbrenna@hubspotpartners.com"
+      ],
+      "name": "Ireland",
+      "startDate": "2017-04-29"
+    },
+    {
+      "attendeeCount": 3,
+      "attendees": [
+        "tmozie@hubspotpartners.com",
+        "taffelt@hubspotpartners.com",
+        "omajica@hubspotpartners.com"
+      ],
+      "name": "Spain",
+      "startDate": "2017-04-28"
+    }
+  ]
+}
